@@ -9,10 +9,4 @@ package com.zxp;
  **/
 public class ArrayBinaryTree<T> {
 
-    private T[] data;
-    private
-
-    public void add(T data){
-        if()
-    }
 }
