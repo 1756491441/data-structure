@@ -110,4 +110,30 @@ public class MyLinkedList<T> {
 
         return dstLinked;
     }
+
+    public boolean checkRing(){
+        //链表为空或者链表只有一个元素不需要进行操作,肯定无环
+        if (head == null || head.getNext() == null) {
+            return false;
+        }
+
+        //快慢指针
+        Node<T> fast = getHead();
+        Node<T> slow = getHead();
+        while (slow != null && fast != null) {
+            //两个指向同一个指针
+            if (slow == fast) {
+                return true;
+            }
+            slow = slow.getNext();
+            if (!fast.hasNext()) {
+                fast = null;
+                continue;
+            }
+            fast = fast.getNext().getNext();
+        }
+
+        return false;
+    }
+    
 }
